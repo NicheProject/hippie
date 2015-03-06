@@ -51,7 +51,7 @@ Hippie::App.controllers :codeship do
     end
 
     post_to_room(room, msg.join('<br/>'), html_opts) unless msg.empty?
-    post_to_room(room, "#{user} may want to check #{build_url}", text_opts) unless msg.empty?
+    post_to_room(room, "(stare) #{user} may want to check #{build_url}", text_opts) unless msg.empty?
   end
 
 end
