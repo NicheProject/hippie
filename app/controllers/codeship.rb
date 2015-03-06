@@ -37,7 +37,7 @@ Hippie::App.controllers :codeship do
     notify = false
     notify = true if branch == 'master'
 
-    text_opts = { color: color, token: token, notify: true }
+    text_opts = { color: color, token: token, notify: notify }
     html_opts = { color: color, token: token, format: 'html', notify: notify }
 
     msg = []
