@@ -43,15 +43,14 @@ Hippie::App.controllers :codeship do
     msg = []
     if status == 'error'
       user = map_github_user(committer)
-      msg << "<b>Build Failed for #{project_name}</b>"
-      msg << "Commit Message: #{message}"
+      msg << "(stare) #{user} you broke the build!"
+      msg << "Project: #{project_name}"
       msg << "Branch: #{branch}"
-      msg << "Commit: <a href='#{commit_url}'>#{commit_url}</a>"
-      msg << "More info: <a href='#{build_url}'>#{build_url}</a>"
+      msg << "Commit: #{commit_url}"
+      msg << "Info: #{build_url}"
     end
 
-    post_to_room(room, msg.join('<br/>'), html_opts) unless msg.empty?
-    post_to_room(room, "(stare) #{user} you broke the build!\n Project: #{project_name}\n Branch:#{branch}\n (more info: #{build_url})", text_opts) unless msg.empty?
+    post_to_room(room, msg.join("\n"), text_opts) unless msg.empty?
   end
 
 end
