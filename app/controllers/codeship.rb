@@ -43,8 +43,8 @@ Hippie::App.controllers :codeship do
     msg = []
     if status == 'error'
       user = map_github_user(committer)
-      msg << "<b>Build Failed for #{project_name}!</b> (sadpanda)"
-      msg << message
+      msg << "<b>Build Failed for #{project_name}</b>"
+      msg << "Commit Message: #{message}"
       msg << "Branch: #{branch}"
       msg << "Commit: <a href='#{commit_url}'>#{commit_url}</a>"
       msg << "   --More info: <a href='#{build_url}'>#{build_url}</a>"
