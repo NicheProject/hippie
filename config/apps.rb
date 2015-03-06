@@ -25,6 +25,17 @@
 # Setup global project settings for your apps. These settings are inherited by every subapp. You can
 # override these settings in the subapps as needed.
 #
+
+# Sets up a hash from env string
+# string is format is key:value,key:value
+def hash_from_env(env)
+  return {} unless env
+  env.split(',').each_with_object({}) do |item, hash|
+    map = item.split(':')
+    hash.store(map[0], map[1])
+  end
+end
+
 Padrino.configure_apps do
   set :protection, :except => :path_traversal
   set :protect_from_csrf, false
@@ -35,14 +46,11 @@ Padrino.configure_apps do
   # Room keys are optional, you should be able to pass the key via the url
   # This parses the environment variable $ROOM_KEYS and expects a comma-delimited list of room:token
   # example: ROOM_KEYS=room1:token1,room2:token2
-  set :room_keys, {}
-  if ENV['ROOM_KEYS']
-    keys = ENV['ROOM_KEYS'].split(',').each_with_object({}) do |key, hash|
-      map = key.split(':')
-      hash.store( map[0], map[1] )
-    end
-    set :room_keys, keys
-  end
+  set :room_keys, hash_from_env(ENV['ROOM_KEYS'])
+
+  # codeship users is a map of codeship to hipchat username
+  # example: git_user:hipchat_user,git_user2:hipchat_user2
+  set :codeship_users, hash_from_env(ENV['CODESHIP_USERS'])
 
 end
 

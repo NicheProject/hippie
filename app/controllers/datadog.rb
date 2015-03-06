@@ -9,13 +9,13 @@ Hippie::App.controllers :datadog do
 
   post '/notify/:room' do
     request_payload = convert_json_body(request)
-    title = request_payload["title"]
-    event_type = request_payload["event_type"]
-    body = request_payload["body"]
-    link = request_payload["link"]
-    snapshot = request_payload["snapshot"]
-    room = params['room']
-    token = params['token'] || Hippie::App.room_keys[room]
+    title           = request_payload["title"]
+    event_type      = request_payload["event_type"]
+    body            = request_payload["body"]
+    link            = request_payload["link"]
+    snapshot        = request_payload["snapshot"]
+    room            = params['room']
+    token           = params['token'] || Hippie::App.room_keys[room]
 
     logger.info request_payload.to_s
 
