@@ -34,7 +34,7 @@ Hippie::App.controllers :codeship do
     color = 'yellow' if status.match(/stopped/)
     color = 'green'  if status.match(/success/)
 
-    notify = true
+    notify = false
     notify = true if branch == 'master'
 
     text_opts = { color: color, token: token, notify: notify }
