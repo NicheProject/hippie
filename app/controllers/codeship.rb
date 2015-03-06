@@ -51,7 +51,7 @@ Hippie::App.controllers :codeship do
     end
 
     post_to_room(room, msg.join('<br/>'), html_opts) unless msg.empty?
-    post_to_room(room, "(stare) #{user} your changes broke the build for #{project_name}:#{branch} (more info: #{build_url})", text_opts) unless msg.empty?
+    post_to_room(room, "(stare) #{user} you broke the build!\n Project: #{project_name}\n Branch:#{branch}\n (more info: #{build_url})", text_opts) unless msg.empty?
   end
 
 end
