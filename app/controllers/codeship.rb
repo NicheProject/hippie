@@ -37,7 +37,7 @@ Hippie::App.controllers :codeship do
     notify = false
     notify = true if branch == 'master'
 
-    text_opts = { color: color, token: token, notify: notify }
+    text_opts = { color: color, token: token, notify: true }
     html_opts = { color: color, token: token, format: 'html', notify: notify }
 
     msg = []
@@ -47,7 +47,7 @@ Hippie::App.controllers :codeship do
       msg << "Commit Message: #{message}"
       msg << "Branch: #{branch}"
       msg << "Commit: <a href='#{commit_url}'>#{commit_url}</a>"
-      msg << "   --More info: <a href='#{build_url}'>#{build_url}</a>"
+      msg << "More info: <a href='#{build_url}'>#{build_url}</a>"
     end
 
     post_to_room(room, msg.join('<br/>'), html_opts) unless msg.empty?
