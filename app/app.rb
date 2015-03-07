@@ -61,6 +61,21 @@ module Hippie
     #   end
     #
 
+    get :index do
+      body = []
+      body << "<html><head><title>Hippie</title></head><body>"
+      body << '<br/><br/><br/>'
+      body << "<div id='name' style='margin:auto; text-align:center; font-size:48px; color: #333333; font-family:helvetica;'>"
+      body << "<b>Hey maaaaaan.</b><br/>"
+      body << "</div>"
+      body << "<div id='hippie' style='margin:auto; text-align:center; color: #333333; font-family:helvetica;'>"
+      body << "<img src='/hippie.jpg'/>"
+      body << "<br/><br/><a href='https://github.com/parabuzzle/hippie'>https://github.com/parabuzzle/hippie</a>"
+      body << "</div>"
+      body << "</body></html>"
+      body.join
+    end
+
     def self.protect(protected)
       condition do
         halt 403, "Invalid Application Token" unless params[:auth_token] == Hippie::App.auth_token
