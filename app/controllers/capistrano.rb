@@ -1,5 +1,5 @@
 # Capistrano webhook handler
-#   -- bridges codeship events into hipchat room
+#   -- bridges capistrano events into hipchat room
 #
 # Author::    Michael Heijmans  (mailto:parabuzzle@gmail.com)
 # Copyright:: Copyright (c) 2015 Michael Heijmans
