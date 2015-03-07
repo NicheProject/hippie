@@ -7,7 +7,7 @@
 
 Hippie::App.controllers :notice, conditions: {:protect => true} do
 
-  post '/process/:token' do
+  post '/process/:auth_token' do
     request_payload = convert_json_body(request)
     message = request_payload['item']['message']['message'].gsub('/notice', '')
     respond(message, {color: 'red', notify: true})

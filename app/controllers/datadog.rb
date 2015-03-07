@@ -5,17 +5,17 @@
 # Copyright:: Copyright (c) 2015 Michael Heijmans
 # License::   MIT
 
-Hippie::App.controllers :datadog do
+Hippie::App.controllers :datadog, conditions: {:protect => true} do
 
-  post '/notify/:room' do
+  post '/notify/:room/:auth_token' do
     request_payload = convert_json_body(request)
     title           = request_payload["title"]
     event_type      = request_payload["event_type"]
     body            = request_payload["body"]
     link            = request_payload["link"]
     snapshot        = request_payload["snapshot"]
+    token           = request_payload['token'] || Hippie::App.room_keys[room]
     room            = params['room']
-    token           = params['token'] || Hippie::App.room_keys[room]
 
     logger.info request_payload.to_s
 

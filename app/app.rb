@@ -63,7 +63,7 @@ module Hippie
 
     def self.protect(protected)
       condition do
-        halt 403, "Invalid Application Token" unless params[:token] == Hippie::App.auth_token
+        halt 403, "Invalid Application Token" unless params[:auth_token] == Hippie::App.auth_token
       end if protected
     end
 

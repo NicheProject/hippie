@@ -5,9 +5,9 @@
 # Copyright:: Copyright (c) 2015 Michael Heijmans
 # License::   MIT
 
-Hippie::App.controllers :codeship do
+Hippie::App.controllers :codeship, conditions: {:protect => true} do
 
-  post '/notify/:room' do
+  post '/notify/:room/:auth_token' do
     request_payload = convert_json_body(request)
     build           = request_payload['build']
     build_url       = build['build_url']
@@ -21,8 +21,8 @@ Hippie::App.controllers :codeship do
     message         = build['message']
     committer       = build['committer']
     branch          = build['branch']
+    token           = request_payload['token'] || Hippie::App.room_keys[room]
     room            = params['room']
-    token           = params['token'] || Hippie::App.room_keys[room]
 
     logger.info request_payload.to_s
 
