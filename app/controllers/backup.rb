@@ -27,6 +27,7 @@ Hippie::App.controllers :backup, conditions: {:protect => true} do
     notify = case status
     when 'failure' then true
     else false
+    end
 
     text_opts = { color: color, token: token, notify: notify }
 
