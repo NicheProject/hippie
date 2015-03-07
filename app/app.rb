@@ -61,16 +61,49 @@ module Hippie
     #   end
     #
 
+    disable :raise_errors
+    disable :show_exceptions
+
     get :index do
       body = []
       body << "<html><head><title>Hippie</title></head><body>"
       body << '<br/><br/><br/>'
       body << "<div id='name' style='margin:auto; text-align:center; font-size:48px; color: #333333; font-family:helvetica;'>"
-      body << "<b>Hey maaaaaan.</b><br/>"
+      body << "<b>Microphone Test... 1 2 3</b><br/>"
       body << "</div>"
       body << "<div id='hippie' style='margin:auto; text-align:center; color: #333333; font-family:helvetica;'>"
-      body << "<img src='/hippie.jpg'/>"
+      body << "<img src='/mic-test.jpg'/>"
       body << "<br/><br/><a href='https://github.com/parabuzzle/hippie'>https://github.com/parabuzzle/hippie</a>"
+      body << "</div>"
+      body << "</body></html>"
+      body.join
+    end
+
+    not_found do
+      body = []
+      body << "<html><head><title>Hippie :: Not Found</title></head><body>"
+      body << '<br/><br/><br/>'
+      body << "<div id='name' style='margin:auto; text-align:center; font-size:48px; color: #333333; font-family:helvetica;'>"
+      body << "<b>Hey maaaaaan.</b><br/>"
+      body << "</div>"
+      body << "<div id='hippie' style='margin:auto; text-align:center; font-size:38px; color: #333333; font-family:helvetica;'>"
+      body << "<img src='/hippie.jpg'/>"
+      body << "<br/><br/><b>404 - not found</b>"
+      body << "</div>"
+      body << "</body></html>"
+      body.join
+    end
+
+    error do
+      body = []
+      body << "<html><head><title>Hippie :: Server Error</title></head><body>"
+      body << '<br/><br/><br/>'
+      body << "<div id='name' style='margin:auto; text-align:center; font-size:48px; color: #333333; font-family:helvetica;'>"
+      body << "<b>Oh no! You broke the Bong!</b><br/>"
+      body << "</div>"
+      body << "<div id='hippie' style='margin:auto; text-align:center; font-size:38px; color: #333333; font-family:helvetica;'>"
+      body << "<img src='/fail-hippie.jpg'/>"
+      body << "<br/><br/><b>500 - Server Error</b>"
       body << "</div>"
       body << "</body></html>"
       body.join
