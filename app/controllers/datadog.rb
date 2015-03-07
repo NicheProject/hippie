@@ -14,10 +14,8 @@ Hippie::App.controllers :datadog, conditions: {:protect => true} do
     body            = request_payload["body"]
     link            = request_payload["link"]
     snapshot        = request_payload["snapshot"]
-    token           = request_payload['token'] || Hippie::App.room_keys[room]
     room            = params['room']
-
-    logger.info request_payload.to_s
+    token           = request_payload['token'] || Hippie::App.room_keys[room]
 
     halt 500, 'missing room' unless room
     halt 500, 'missing room token' unless token

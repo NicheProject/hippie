@@ -29,6 +29,8 @@ gem 'httparty'
 gem 'redcarpet'
 gem 'yard'
 
+gem 'pry'
+
 # Or Padrino Edge
 # gem 'padrino', :github => 'padrino/padrino-framework'
 

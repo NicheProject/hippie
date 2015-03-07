@@ -13,10 +13,8 @@ Hippie::App.controllers :capistrano, conditions: {:protect => true} do
     color           = request_payload['color']
     notify          = request_payload['notice']
     room_name       = request_payload['room']
-    token           = request_payload['token'] || Hippie::App.room_keys[room]
     room            = params['room']
-
-    logger.info request_payload.to_s
+    token           = request_payload['token'] || Hippie::App.room_keys[room]
 
     halt 500, 'missing room' unless room
     halt 500, 'missing room token' unless token

@@ -7,6 +7,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    coderay (1.1.0)
     daemons (1.1.9)
     eventmachine (1.0.7)
     http_router (0.11.1)
@@ -20,6 +21,7 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    method_source (0.8.2)
     mime-types (1.25.1)
     minitest (5.5.1)
     moneta (0.7.20)
@@ -60,6 +62,10 @@ GEM
     padrino-support (0.12.4)
       activesupport (>= 3.1)
     polyglot (0.3.5)
+    pry (0.10.1)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
     rack (1.6.0)
     rack-protection (1.5.3)
       rack
@@ -72,6 +78,7 @@ GEM
     slim (3.0.2)
       temple (~> 0.7.3)
       tilt (>= 1.3.3, < 2.1)
+    slop (3.6.0)
     temple (0.7.5)
     thin (1.6.3)
       daemons (~> 1.0, >= 1.0.9)
@@ -96,6 +103,7 @@ DEPENDENCIES
   httparty
   oj
   padrino (= 0.12.4)
+  pry
   rack (~> 1.6.0)
   rake
   redcarpet
