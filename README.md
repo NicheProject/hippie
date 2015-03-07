@@ -11,7 +11,7 @@ HipChat has moved away from normal "Bot" integrations in favor of Webhook based 
 
 With Hippie, you can define an endpoint for publishing into a room from an outside source [like a Capistrano script](https://github.com/parabuzzle/hippie/blob/master/app/controllers/capistrano.rb). Or you can setup a `/` based command like [/notice](https://github.com/parabuzzle/hippie/blob/master/app/controllers/notice.rb).
 
-The point here was to make an ease framework for hosting these webhook endpoints that provides helpers for working with the HipChat way of doing things.
+The point here was to make an easy framework for hosting these webhook endpoints that provides helpers for working with the HipChat way of doing things.
 
 More on HipChat Webhooks: https://www.hipchat.com/docs/apiv2/webhooks
 
@@ -49,9 +49,9 @@ Another great question!
 
 You just need to:
 
-  1 fork this repository
-  1 create an app on heroku (following the instructions to link your hippie repo to heroku)
-  1 ...and deploy (`git push heroku master`)
+  1. fork this repository
+  1. create an app on heroku (following the instructions to link your hippie repo to heroku)
+  1. ...and deploy (`git push heroku master`)
 
 There are a number of environment variables you will want to set though (a full list can be found in `config/apps.rb`)
 
@@ -108,11 +108,11 @@ Hippie isn't perfect.. its a weekend project to solve a specific problem of mine
 
 I welcome any and all help!
 
-  1 fork the repository
-  1 create a feature branch
-  1 add your awesome code
-  1 send a pull request
-  1 have a beer
+  1. fork the repository
+  1. create a feature branch
+  1. add your awesome code
+  1. send a pull request
+  1. have a beer
 
 ## License
 
