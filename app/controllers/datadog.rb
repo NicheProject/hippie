@@ -13,7 +13,7 @@ Hippie::App.controllers :datadog, conditions: {:protect => true} do
     event_type      = request_payload["event_type"]
     body            = request_payload["body"]
     link            = request_payload["link"]
-    snapshot        = request_payload["snapshot"]
+    snapshot        = request_payload["snapshot"] || ""
     room            = params['room']
     token           = request_payload['token'] || Hippie::App.room_keys[room]
 
