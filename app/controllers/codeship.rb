@@ -22,7 +22,7 @@ Hippie::App.controllers :codeship, conditions: {:protect => true} do
     committer       = build['committer']
     branch          = build['branch']
     room            = params['room']
-    token           = request_payload['token'] || Hippie::App.room_keys[room]
+    token           = params['token'] || Hippie::App.room_keys[room]
 
     halt 500, 'missing room' unless room
     halt 500, 'missing room token' unless token
